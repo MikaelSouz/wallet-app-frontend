@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Wallet App - Cadastrar</title>
+    <link rel="stylesheet" href="../../../styles.css" />
+    <script src="index.js"></script>
+  </head>
+  <body>
+    <section>
+      <div class="auth-container">
+        <div class="auth-content">
+          <div class="auth-content-container">
+            <img class="logo" src="../../img/logo.png" alt="wallet-logo" />
+            <h3 class="full-width text-left mt-larger">Novo cadastro</h3>
+            <p class="mt-small">
+              Insira seu nome e seu e-mail para ter acesso ao Wallet app e
+              gerenciar suas finanças
+            </p>
+            <form id="form-register" class="mt">
+              <label for="input-name" class="mt">Nome</label>
+              <input
+                id="input-name"
+                type="text"
+                name="input-name"
+                placeholder="Ex: José da Silva"
+                class="mt-smaller"
+                required
+              />
+              <label for="input-email" class="mt">E-mail</label>
+              <input
+                id="input-email"
+                type="text"
+                name="input-email"
+                placeholder="email@exemplo.com"
+                class="mt-smaller"
+                required
+              />
+              <button type="submit" class="mt-larger full-widht">
+                Cadastrar
+              </button>
+            </form>
+            <a href="../../../index.html" class="mt-larger"
+              >Já possui uma conta ? Faça o seu login</a
+            >
+          </div>
+        </div>
+      </div>
+    </section>
+  </body>
+</html>
