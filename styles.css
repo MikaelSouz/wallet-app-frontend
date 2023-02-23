@@ -121,6 +121,10 @@ input {
   margin-top: 32px;
 }
 
+.mt-largers {
+  margin-top: 36px;
+}
+
 .logo {
   width: 88px;
   height: auto;
