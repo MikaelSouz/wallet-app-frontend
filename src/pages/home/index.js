@@ -1,3 +1,48 @@
+const renderFinancesList = (data) => {
+  const table = document.getElementById("finances-table");
+
+  data.map((item) => {
+    const tableRow = document.createElement("tr");
+
+    // title
+    const titleTd = document.createElement("td");
+    const titleText = document.createTextNode(item.title);
+    titleTd.appendChild(titleText);
+    tableRow.appendChild(titleTd);
+    titleTd.className = "left";
+
+    // category
+    const categoryTd = document.createElement("td");
+    const categoryText = document.createTextNode(item.name);
+    categoryTd.appendChild(categoryText);
+    tableRow.appendChild(categoryTd);
+
+    // date
+    const dateTd = document.createElement("td");
+    const dateText = document.createTextNode(
+      new Date(item.date).toLocaleDateString()
+    );
+    dateTd.appendChild(dateText);
+    tableRow.appendChild(dateTd);
+
+    // value
+    const valueTd = document.createElement("td");
+    const valueText = document.createTextNode(formatValue(item.value));
+    valueTd.appendChild(valueText);
+    tableRow.appendChild(valueTd);
+
+    // delete
+    const deleteTd = document.createElement("td");
+    const deleteText = document.createTextNode("deletar");
+    deleteTd.appendChild(deleteText);
+    tableRow.appendChild(deleteTd);
+    deleteTd.className = "right";
+
+    // table add tablerow
+    table.appendChild(tableRow);
+  });
+};
+
 const formatValue = (number) => {
   const value = new Intl.NumberFormat("pt-BR", {
     style: "currency",
@@ -64,6 +109,8 @@ const onLoadFinancesData = async () => {
 
     const data = await result.json();
     renderFinanceElements(data);
+    renderFinancesList(data);
+
     return data;
   } catch (error) {
     return { error };
