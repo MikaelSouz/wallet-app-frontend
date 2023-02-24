@@ -102,6 +102,10 @@ table {
   color: #7c7c7c;
 }
 
+tr {
+  height: 32px;
+}
+
 th {
   text-align: center;
 }
@@ -124,4 +128,34 @@ td.left {
 
 td.right {
   text-align: right;
+}
+
+.modal-background {
+  display: none;
+  flex-direction: column;
+  align-items: flex-end;
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(1, 4, 0, 0.2);
+}
+
+.modal-content {
+  width: 480px;
+  height: 100vh;
+  background-color: #f4f4f9;
+  box-sizing: border-box;
+  padding: 24px;
+}
+
+.modal-content-header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
 }
