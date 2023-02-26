@@ -50,7 +50,7 @@ const renderFinancesList = (data) => {
 
   // action
   const actionHeader = document.createElement("th");
-  const textActionHeader = document.createTextNode("Ação");
+  const textActionHeader = document.createTextNode("Apagar");
   actionHeader.className = "right";
   actionHeader.appendChild(textActionHeader);
   tableRow.appendChild(actionHeader);
@@ -63,9 +63,9 @@ const renderFinancesList = (data) => {
     // title
     const titleTd = document.createElement("td");
     const titleText = document.createTextNode(item.title);
+    titleTd.className = "left";
     titleTd.appendChild(titleText);
     tableRow.appendChild(titleTd);
-    titleTd.className = "left";
 
     // category
     const categoryTd = document.createElement("td");
@@ -76,7 +76,7 @@ const renderFinancesList = (data) => {
     // date
     const dateTd = document.createElement("td");
     const dateText = document.createTextNode(
-      new Date(item.date).toLocaleDateString()
+      new Date(item.date).toLocaleDateString("pt-BR", { timeZone: "UTC" })
     );
     dateTd.appendChild(dateText);
     tableRow.appendChild(dateTd);
@@ -89,12 +89,14 @@ const renderFinancesList = (data) => {
 
     // delete
     const deleteTd = document.createElement("td");
+    const deleteImg = document.createElement("img");
+    deleteTd.className = "right";
+    deleteImg.className = "img-delete";
+    deleteImg.src = "../../img/delete.png";
     deleteTd.style.cursor = "pointer";
     deleteTd.onclick = () => onDeleteItem(item.id);
-    const deleteText = document.createTextNode("deletar");
-    deleteTd.appendChild(deleteText);
+    deleteTd.appendChild(deleteImg);
     tableRow.appendChild(deleteTd);
-    deleteTd.className = "right";
 
     // table add tablerow
     table.appendChild(tableRow);
@@ -184,7 +186,12 @@ const renderFinanceElements = (data) => {
   balanceElement.appendChild(balanceText);
   financeCard4.appendChild(balanceElement);
   balanceElement.className = "mt-smaller";
-  balanceElement.style.color = "#5936cd";
+
+  if (totalValue >= 0) {
+    balanceElement.style.color = "#088A08";
+  } else {
+    balanceElement.style.color = "#DF0101";
+  }
 };
 
 const onLoadFinancesData = async () => {

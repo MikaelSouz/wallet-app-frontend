@@ -5,6 +5,7 @@ body {
   margin: 0px;
   font-family: "Noto Sans", sans-serif;
   color: #010400;
+  overflow-x: hidden;
 }
 
 h1 {
@@ -136,6 +137,10 @@ select {
 
 .mt-largers {
   margin-top: 36px;
+}
+
+.mt-largers-page {
+  margin-top: 106px;
 }
 
 .logo {
